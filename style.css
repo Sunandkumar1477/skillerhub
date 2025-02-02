@@ -789,187 +789,78 @@ footer p {
     from { transform: scale(0.5); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
-/* ========================= */
-/* 📱 Responsive Styles (350px - 1200px) */
-/* ========================= */
-
-/* Small screens (up to 480px) */
-@media screen and (max-width: 480px) {
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 50px;
-        left: 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-item {
-        margin: 10px 0;
-        font-size: 16px;
-    }
-
-    .big-text {
-        font-size: 36px;
-        padding: 5px;
-    }
-
-    .hero-content {
-        padding: 10px;
-    }
-
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .about-image-slider,
-    .about-text {
-        max-width: 100%;
-    }
-
-    .choose-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .choose-text,
-    .choose-image {
-        max-width: 100%;
-    }
-
-    .promotions-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-info,
-    .office-address {
-        max-width: 100%;
-    }
-}
-
-/* Medium screens (481px - 768px) */
-@media screen and (max-width: 768px) {
-    .navbar {
-        padding: 10px 15px;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 50px;
-        left: 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-item {
-        margin: 10px 0;
-    }
-
-    .hero-content {
-        padding: 15px;
-    }
-
-    .big-text {
-        font-size: 48px;
-    }
-
-    .about-container {
-        flex-direction: column;
-    }
-
-    .about-image-slider,
-    .about-text {
-        max-width: 100%;
-    }
-
-    .choose-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .choose-text,
-    .choose-image {
-        max-width: 100%;
-    }
-
-    .contact-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-info,
-    .office-address {
-        max-width: 100%;
-    }
-}
-
-/* Large screens (769px - 1024px) */
+/* Force Desktop Layout on All Mobile Devices */
 @media screen and (max-width: 1024px) {
-    .hero-content {
-        padding: 20px;
+    /* Ensure the layout does not stack */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
     }
 
+    /* Ensure flex elements stay in row */
+    .about-container,
+    .choose-container,
+    .promotions-container,
+    .services,
+    .team-container {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    /* Prevent services from stacking */
+    .service {
+        width: 30% !important;
+    }
+
+    /* Ensure text blocks stay side by side with images */
+    .about-text,
+    .choose-text,
+    .promotions-text {
+        max-width: 50% !important;
+        text-align: left !important;
+    }
+
+    /* Maintain fixed sizes for images */
+    .about-image-slider,
+    .choose-image,
+    .promotions-image {
+        max-width: 50% !important;
+        text-align: center !important;
+    }
+
+    /* Fix navbar and header */
+    .navbar {
+        position: fixed !important;
+        top: 0 !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+    }
+
+    /* Force hero section to full width */
+    .hero {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+    /* Ensure buttons and text don't shrink */
     .big-text {
-        font-size: 54px;
+        font-size: 60px !important;
     }
 
-    .about-container {
-        flex-wrap: wrap;
+    /* Disable the hamburger menu */
+    .hamburger {
+        display: none !important;
     }
 
-    .about-image-slider {
-        max-width: 50%;
-    }
-
-    .choose-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .promotions-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .contact-content {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .contact-info,
-    .office-address {
-        max-width: 45%;
+    /* Prevent content from shrinking */
+    body,
+    .container,
+    .section {
+        min-width: 1024px !important;
+        overflow-x: hidden !important;
     }
 }

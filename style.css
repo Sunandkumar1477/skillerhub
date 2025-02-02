@@ -719,8 +719,22 @@ footer p {
 }
 
 .highlight {
-    color: #ff6347;
-    transition: color 0.5s ease-in-out;
+    background-image: linear-gradient(45deg, rgba(220, 240, 171, 1), rgba(128, 210, 204, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Adjust thickness */
+    width: 100%;
+    height: 2px; /* Adjust thickness */
+    background: linear-gradient(45deg, rgba(220, 240, 171, 1), rgba(128, 210, 204, 1));
 }
 
 .fade-in {
